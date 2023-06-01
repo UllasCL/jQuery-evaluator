@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: jQueryEvaluator
+
+server:
+  port: 8080
+  servlet:
+    contextPath: /service
