@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class FilterParserServiceTest {
 
   @InjectMocks
-  private FilterParserService filterParserService;
+  private RulesParserService filterParserService;
 
   private static final String ruleString = "{\n"
       + "  \"condition\": \"AND\",\n"

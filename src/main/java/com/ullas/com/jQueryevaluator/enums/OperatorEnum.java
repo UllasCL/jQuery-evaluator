@@ -2,7 +2,7 @@ package com.ullas.com.jQueryevaluator.enums;
 
 public enum OperatorEnum {
 
-  EQUAL("EQUAL");
+  EQUAL("equal");
 
   private final String operator;
 

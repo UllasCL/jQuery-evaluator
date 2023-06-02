@@ -17,7 +17,7 @@ public class EvaluatorServiceTest {
   private OperatorRegistry operatorRegistry;
 
   @Mock
-  private FilterParserService filterParserService;
+  private RulesParserService filterParserService;
 
 
   @Test
