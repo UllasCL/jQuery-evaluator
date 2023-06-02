@@ -29,13 +29,12 @@ public class StatusCheckController {
   public ResponseEntity<String> getAppVersion() {
 
     try {
-      var rules = rulesParserService.parseRawRuleSet(Constants.ruleString);
-      LOGGER.info("response {}",rules);
+      //      var rules = rulesParserService.parseRawRuleSet(Constants.ruleString);
+      //      LOGGER.info("response {}",rules);
       var result =
-          evaluatorService.EvaluateRule(rules.getRules()[0]
-              ,
+          evaluatorService.EvaluateExpression(Constants.ruleStringOr,
               Map.of("price", 10.25));
-      LOGGER.info("result {}",result);
+      LOGGER.info("result {}", result);
 
     } catch (Exception e) {
       e.printStackTrace();

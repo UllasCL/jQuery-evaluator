@@ -16,10 +16,7 @@ public class OperatorRegistry implements IRegistry<String, IOperatorHandler> {
   }
 
   @Override
-  public IOperatorHandler get(final String key) throws Exception {
-    if (!OPERATOR_HANDLER_MAP.containsKey(key)) {
-      throw new Exception("Operator handler not present for vendor " + key);
-    }
+  public IOperatorHandler get(final String key) {
     return OPERATOR_HANDLER_MAP.get(key);
   }
 }
