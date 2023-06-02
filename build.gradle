@@ -1,12 +1,12 @@
 buildscript {
-	ext { springBootVersion = '2.0.6.RELEASE' }
-	dependencies {
-		repositories {
-			jcenter()
-			maven { url "https://plugins.gradle.org/m2" }
-		}
-		classpath (group:  'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: "${springBootVersion}")
-	}
+    ext { springBootVersion = '2.0.6.RELEASE' }
+    dependencies {
+        repositories {
+            jcenter()
+            maven { url "https://plugins.gradle.org/m2" }
+        }
+        classpath(group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: "${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -22,58 +22,57 @@ group = 'com.ullas.com'
 version = '0.0.1-SNAPSHOT'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter')
-	implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter')
+    implementation('org.springframework.boot:spring-boot-starter-web')
 
-	compileOnly 'org.projectlombok:lombok:1.18.20'
-	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-	implementation group: 'org.apache.commons', name: 'commons-lang3'
-	compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.0'
+    implementation group: 'org.apache.commons', name: 'commons-lang3'
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.0'
 
-	testImplementation('org.mockito:mockito-core:2.23.0')
-	testImplementation('junit:junit:4.12')
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.mockito:mockito-core:2.23.0')
+    testImplementation('junit:junit:4.12')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
 bootJar {
-	enabled = false
+    enabled = false
 }
 
 jar {
-	enabled = true
+    enabled = true
 }
 
-configure() {
-	apply plugin: "maven-publish"
+apply plugin: "maven-publish"
 
-	publishing {
-		repositories {
-			maven {
-				name = "GitHubPackages"
-				url = uri("https://maven.pkg.github.com/UllasCL/jQuery-evaluator")
-				credentials {
-					username = "publishPackage"
-					password = "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"
-				}
-			}
-		}
-		publications {
-			gpr(MavenPublication) {
-				versionMapping {
-					usage('java-api') {
-						fromResolutionOf('runtimeClasspath')
-					}
-					usage('java-runtime') {
-						fromResolutionResult()
-					}
-				}
-				from(components.java)
-			}
-		}
-	}
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/UllasCL/jQuery-evaluator")
+            credentials {
+                username = "publishPackage"
+                password = "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"
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            from(components.java)
+        }
+    }
 }
+
