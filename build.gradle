@@ -47,3 +47,33 @@ bootJar {
 jar {
 	enabled = true
 }
+
+configure() {
+	apply plugin: "maven-publish"
+
+	publishing {
+		repositories {
+			maven {
+				name = "GitHubPackages"
+				url = uri("https://maven.pkg.github.com/UllasCL/jQuery-evaluator")
+				credentials {
+					username = "publishPackage"
+					password = "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"
+				}
+			}
+		}
+		publications {
+			gpr(MavenPublication) {
+				versionMapping {
+					usage('java-api') {
+						fromResolutionOf('runtimeClasspath')
+					}
+					usage('java-runtime') {
+						fromResolutionResult()
+					}
+				}
+				from(components.java)
+			}
+		}
+	}
+}
