@@ -50,14 +50,15 @@ jar {
 
 apply plugin: "maven-publish"
 
+
 publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/cdna-technologies/jQuery-evaluator")
+            url = uri("https://maven.pkg.github.com/UllasCL/jQuery-evaluator")
             credentials {
-                username = "nucleijenkinsbot"
-                password = "0fa90d8b709c5f2b389eba5dbf757e2d1591e0aa"
+                username = "publishPackage"
+                password = "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"
             }
         }
     }
@@ -75,4 +76,3 @@ publishing {
         }
     }
 }
-
