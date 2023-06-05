@@ -3,7 +3,6 @@ package com.ullas.com.jQueryevaluator.controller;
 import com.ullas.com.jQueryevaluator.constants.Constants;
 import com.ullas.com.jQueryevaluator.service.EvaluatorService;
 import com.ullas.com.jQueryevaluator.service.RulesParserService;
-import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +28,15 @@ public class StatusCheckController {
   public ResponseEntity<String> getAppVersion() {
 
     try {
-      //      var rules = rulesParserService.parseRawRuleSet(Constants.ruleString);
-      //      LOGGER.info("response {}",rules);
-      var result =
-          evaluatorService.EvaluateExpression(Constants.ruleStringOr,
-              Map.of("price", 10.25));
-      LOGGER.info("result {}", result);
+      LOGGER.info("-----------------------------------------------------------------------\n\n");
+
+      LOGGER.info("lessThanAmount50Airtel request map {}", Constants.lessThanAmount50AirtelMap);
+      var lessThanAmount50Airtel =
+          evaluatorService.EvaluateExpression(Constants.lessThanAmount50Airtel,
+              Constants.lessThanAmount50AirtelMap);
+      LOGGER.info("result {}", lessThanAmount50Airtel);
+
+      LOGGER.info("-----------------------------------------------------------------------\n\n");
 
     } catch (Exception e) {
       e.printStackTrace();

@@ -6,13 +6,16 @@ import com.ullas.com.jQueryevaluator.registry.OperatorRegistry;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LessOrEqual implements IOperatorHandler {
 
   @Autowired
   private OperatorRegistry operatorRegistry;
 
-  public boolean compareValues(Object ruleValue, Object inputValue) {
+  @Override
+  public boolean validate(final Object ruleValue, final Object inputValue) {
     if (inputValue == null) {
       return false;
     }
@@ -29,11 +32,6 @@ public class LessOrEqual implements IOperatorHandler {
     } else {
       return false;
     }
-  }
-
-  @Override
-  public boolean validate(final Object ruleValue, final Object input) {
-    return false;
   }
 
   @Override

@@ -6,7 +6,9 @@ import com.ullas.com.jQueryevaluator.registry.OperatorRegistry;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Less implements IOperatorHandler {
 
   @Autowired

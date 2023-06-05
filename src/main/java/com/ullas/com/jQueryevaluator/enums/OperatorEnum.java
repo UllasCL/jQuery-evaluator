@@ -6,7 +6,8 @@ public enum OperatorEnum {
   LESS("less"),
   LESS_OR_EQUAL("less_or_equal"),
   GREATER_OR_EQUAL("greater_or_equal"),
-  GREATER("greater");
+  GREATER("greater"),
+  CONTAINS("contains");
 
 
   private final String operator;
