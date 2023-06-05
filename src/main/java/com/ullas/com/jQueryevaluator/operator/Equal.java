@@ -15,13 +15,13 @@ public class Equal implements IOperatorHandler {
   private OperatorRegistry operatorRegistry;
 
   @Override
-  public boolean validate( Object ruleValue, Object inputValue) {
+  public boolean validate(Object ruleValue, Object inputValue) {
     return Objects.equals(ruleValue, inputValue);
   }
 
   @Override
   @PostConstruct
   public void register() {
-    operatorRegistry.register(OperatorEnum.EQUAL.getOperator(),this );
+    operatorRegistry.register(OperatorEnum.EQUAL.getOperator(), this);
   }
 }
