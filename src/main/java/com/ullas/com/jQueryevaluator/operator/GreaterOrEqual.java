@@ -18,15 +18,15 @@ public class GreaterOrEqual implements IOperatorHandler {
       return false;
     }
     if (ruleValue instanceof Double) {
-      return ((Double) inputValue) <= ((Double) ruleValue);
+      return ((Double) inputValue) >= ((Double) ruleValue);
     } else if (ruleValue instanceof Integer) {
-      return ((Integer) inputValue) <= ((Integer) ruleValue);
+      return ((Integer) inputValue) >= ((Integer) ruleValue);
     } else if (ruleValue instanceof String) {
-      return ((String) inputValue).length() <= ((String) ruleValue).length();
+      return ((String) inputValue).length() >= ((String) ruleValue).length();
     } else if (ruleValue instanceof Date) {
       Date inputDate = (Date) inputValue;
       Date valueDate = (Date) ruleValue;
-      return inputDate.before(valueDate) || inputDate.equals(valueDate);
+      return inputDate.after(valueDate) || inputDate.equals(valueDate);
     } else {
       return false;
     }
