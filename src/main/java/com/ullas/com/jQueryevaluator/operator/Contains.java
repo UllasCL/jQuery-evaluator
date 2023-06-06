@@ -14,22 +14,23 @@ public class Contains implements IOperatorHandler {
   @Autowired
   private OperatorRegistry operatorRegistry;
 
+
   @Override
   public boolean validate(final Object ruleValue, final Object inputValue) {
-    Class<?> inputValueClass = inputValue.getClass();
+    Class<?> inputClass = ruleValue.getClass();
 
-    if (inputValueClass == String.class) {
-      String inputValueString = (String) inputValue;
-      String valueString = (String) ruleValue;
+    if (inputClass == String.class) {
+      String inputString = (String) ruleValue;
+      String valueString = (String) inputValue;
 
-      return inputValueString.contains(valueString);
-    } else if (inputValueClass.isArray()) {
-      int length = Array.getLength(inputValue);
+      return inputString.contains(valueString);
+    } else if (inputClass.isArray()) {
+      int length = Array.getLength(ruleValue);
 
       for (int i = 0; i < length; i++) {
-        Object element = Array.get(inputValue, i);
+        Object element = Array.get(ruleValue, i);
 
-        if (element.equals(ruleValue)) {
+        if (element.equals(inputValue)) {
           return true;
         }
       }
@@ -39,7 +40,6 @@ public class Contains implements IOperatorHandler {
 
     return false;
   }
-
 
 @Override
   @PostConstruct
