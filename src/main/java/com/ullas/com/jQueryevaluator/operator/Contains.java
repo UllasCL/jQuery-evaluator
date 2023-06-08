@@ -3,7 +3,8 @@ package com.ullas.com.jQueryevaluator.operator;
 import com.ullas.com.jQueryevaluator.enums.OperatorEnum;
 import com.ullas.com.jQueryevaluator.registry.IOperatorHandler;
 import com.ullas.com.jQueryevaluator.registry.OperatorRegistry;
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,13 +25,9 @@ public class Contains implements IOperatorHandler {
       String valueString = (String) inputValue;
 
       return inputString.contains(valueString);
-    } else if (inputClass.isArray()) {
-      int length = Array.getLength(ruleValue);
-
-      for (int i = 0; i < length; i++) {
-        Object element = Array.get(ruleValue, i);
-
-        if (element.equals(inputValue)) {
+    } else if (inputClass.getName().equals("java.util.ArrayList")) {
+      for (Object arrayElement : (ArrayList)ruleValue) {
+        if (arrayElement.equals(inputValue)) {
           return true;
         }
       }
@@ -41,7 +38,7 @@ public class Contains implements IOperatorHandler {
     return false;
   }
 
-@Override
+  @Override
   @PostConstruct
   public void register() {
     operatorRegistry.register(OperatorEnum.CONTAINS.getOperator(), this);

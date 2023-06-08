@@ -263,4 +263,19 @@ public class TestCaseController {
 
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
+
+  @GetMapping(path = {"/test7a"}, produces = {MediaType.APPLICATION_JSON_VALUE})
+  public ResponseEntity<Boolean> testCase7a() {
+
+    final Map userRequest = Map.of("name", "1");
+
+    var result =
+        evaluatorService.EvaluateExpression(TestCaseConstants.testCase7Rule,
+            userRequest);
+
+    LOGGER.info("testCase6d request map {} response {}",
+        userRequest, result);
+
+    return new ResponseEntity<>(result, HttpStatus.OK);
+  }
 }

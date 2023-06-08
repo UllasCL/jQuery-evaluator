@@ -1,5 +1,6 @@
 package com.ullas.com.jQueryevaluator.operator;
 
+import java.util.ArrayList;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,10 +15,35 @@ public class ContainsTest extends TestCase {
 
   @Test
   public void validTestcase() {
-    int[] input = {1, 2, 3};
-    String[] inputString = {"a","b","c"};
-    assertTrue(contains.validate(input,1));
-    assertTrue(contains.validate(inputString,"b"));
+    ArrayList<Integer> integerList= new ArrayList<>();
+    integerList.add(1);
+    integerList.add(2);
+    integerList.add(3);
+
+    ArrayList<String> stringList=new ArrayList<>();
+    stringList.add("a");
+    stringList.add("b");
+    stringList.add("c");
+
+    assertTrue(contains.validate(integerList,1));
+    assertTrue(contains.validate(stringList,"b"));
+
+  }
+
+  @Test
+  public void inValidTestcase() {
+    ArrayList<Integer> integerList= new ArrayList<>();
+    integerList.add(1);
+    integerList.add(2);
+    integerList.add(3);
+
+    ArrayList<String> stringList=new ArrayList<>();
+    stringList.add("a");
+    stringList.add("b");
+    stringList.add("c");
+
+    assertFalse(contains.validate(integerList,4));
+    assertFalse(contains.validate(stringList,"d"));
 
   }
 }

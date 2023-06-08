@@ -130,7 +130,7 @@ public class TestCaseConstants {
       + "    ],\n"
       + "    \"valid\": true\n"
       + "}";
-  public static String testCase6Rule ="{\n"
+  public static String testCase6Rule = "{\n"
       + "    \"condition\": \"AND\",\n"
       + "    \"rules\": [\n"
       + "        {\n"
@@ -167,5 +167,20 @@ public class TestCaseConstants {
       + "        }\n"
       + "    ],\n"
       + "    \"valid\": true\n"
+      + "}";
+
+  public static String testCase7Rule = "{\n"
+      + "  \"condition\": \"AND\",\n"
+      + "  \"rules\": [\n"
+      + "    {\n"
+      + "      \"id\": \"name\",\n"
+      + "      \"field\": \"name\",\n"
+      + "      \"type\": \"string\",\n"
+      + "      \"input\": \"text\",\n"
+      + "      \"operator\": \"contains\",\n"
+      + "      \"value\": [\"1\",\"2\",\"4\"]\n"
+      + "    }\n"
+      + "  ],\n"
+      + "  \"valid\": true\n"
       + "}";
 }
